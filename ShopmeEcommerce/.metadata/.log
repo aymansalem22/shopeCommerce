@@ -5202,3 +5202,66 @@ user global configuration and to define the default location to store repositori
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-02-23 16:03:46.233
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-02-23 16:03:46.234
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@67253518[org.springframework.tooling.boot.ls:1.30.0.202201310805(id=564)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-02-23 16:03:46.236
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-02-23 16:03:46.271
+!MESSAGE Instantiating ReusableClasspathListenerHandler
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-02-23 16:03:51.448
+!MESSAGE Boot LS startup time from start to initialized: 5194ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-02-23 16:03:51.708
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.HvVyCWFzisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-02-23 16:03:51.710
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-02-23 16:03:51.713
+!MESSAGE Scheduling initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-02-23 16:03:51.714
+!MESSAGE Scheduling initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-02-23 16:03:51.714
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-02-23 16:03:51.715
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.HvVyCWFz => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-02-23 16:03:51.722
+!MESSAGE classpath=72 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-02-23 16:03:51.725
+!MESSAGE buffering callback sts4.classpath.HvVyCWFz ShopmeBackEnd false 72
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-02-23 16:03:51.726
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-02-23 16:03:51.729
+!MESSAGE classpath=49 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-02-23 16:03:51.730
+!MESSAGE buffering callback sts4.classpath.HvVyCWFz ShopmeCommon false 49
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-02-23 16:03:51.731
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-02-23 16:03:51.735
+!MESSAGE classpath=72 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-02-23 16:03:51.737
+!MESSAGE buffering callback sts4.classpath.HvVyCWFz ShopmeFrontEnd false 72
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-02-23 16:03:51.738
+!MESSAGE executing callback sts4.classpath.HvVyCWFz 3 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-02-23 16:03:52.342
+!MESSAGE executing callback sts4.classpath.HvVyCWFz SUCCESS [done]
