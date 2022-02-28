@@ -1,0 +1,6 @@
+package com.shopme.admin.user;
+
+@repo
+public interface RoleRepository extends CrudR {
+
+}
