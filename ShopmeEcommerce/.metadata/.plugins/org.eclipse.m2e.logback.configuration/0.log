@@ -4234,3 +4234,4 @@ Caused by: org.apache.maven.model.building.ModelBuildingException: 1 problem was
 2022-02-28 14:35:14,395 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
 2022-02-28 14:35:14,395 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\ShopmeEcommerce\ShopmeProject\ShopmeWebParent\ShopmeBackEnd\src\test\resources
 2022-02-28 14:35:58,062 [Worker-43: Launching RoleRepositoryTests.testCreateRestRoles] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/ShopmeCommon: com.shopme:ShopmeCommon:0.0.1-SNAPSHOT with classifier null to /ShopmeCommon/target/classes
+2022-02-28 14:35:58,207 [Worker-43: Launching RoleRepositoryTests.testCreateRestRoles] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/ShopmeCommon: com.shopme:ShopmeCommon:0.0.1-SNAPSHOT with classifier null to /ShopmeCommon/target/classes
