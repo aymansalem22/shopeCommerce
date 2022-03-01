@@ -25,7 +25,7 @@ public class UserRepositoryTests {
 	
 	
 	@Test
-	public void testCreateUser() {
+	public void testCreateNewUserWithOneRole() {
 	Role roleAdmin=entityManager.find(Role.class,1);
 		User userAyman=new User("ayman@gmail.com", "1234", "ayman", "abusafia");
 		userAyman.addRole(roleAdmin);
@@ -33,6 +33,61 @@ public class UserRepositoryTests {
 		User savedUser=repo.save(userAyman);
 		assertThat(savedUser.getId()).isGreaterThan(0);
 
+	}
+	
+	@Test
+	public void testCreateNewUserWithTwoRole() {
+		User userAhmad=new User("ahmad@gmail.com", "12345", "ahmad", "abusafia");
+		Role roleEditor=new Role(3);
+		Role roleAssistant=new Role(5);
+		
+		userAhmad.addRole(roleEditor);
+		userAhmad.addRole(roleAssistant);
+	
+
+		User savedUser=repo.save(userAhmad);
+		assertThat(savedUser.getId()).isGreaterThan(0);
+	}
+	
+	@Test
+	public void testListAllUsers() {
+		Iterable<User>listUsers=repo.findAll();
+		listUsers.forEach(user -> System.out.println(user));
+	}
+	
+	@Test
+	public void testGetUserById() {
+		User userAyman=repo.findById(1).get();
+		System.out.println(userAyman);
+		assertThat(userAyman).isNotNull();
+	}
+	
+	@Test
+	public void testUpdateUserDetails() {
+		User userAyman=repo.findById(1).get();
+		userAyman.setEnabled(true);
+		userAyman.setEmail("aymanabusafia@gmail.com");
+		repo.save(userAyman);
+	}
+	
+	@Test
+	public void testUpdateUserRoles() {
+		User userAhmad=repo.findById(8).get();
+		Role roleEditor=new Role(3);
+		Role roleSalesperson=new Role(2);
+		
+		userAhmad.getRoles().remove(roleEditor);
+		userAhmad.addRole(roleSalesperson);
+		
+		repo.save(userAhmad);
+	}
+	
+	@Test
+	public void testDeleteUser() {
+		Integer userId=8;
+		repo.deleteById(userId);
+		
+		
 	}
 
 }
