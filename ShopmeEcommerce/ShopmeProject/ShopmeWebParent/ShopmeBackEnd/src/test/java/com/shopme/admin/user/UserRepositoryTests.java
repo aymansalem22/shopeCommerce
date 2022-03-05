@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Rollback(false)
 public class UserRepositoryTests {
 	@Autowired
-	private UserRepository repo;
+	private UserRepository userRepo;
 	
 	@Autowired
 	private TestEntityManager entityManager;
@@ -30,7 +30,7 @@ public class UserRepositoryTests {
 		User userAyman=new User("ayman@gmail.com", "1234", "ayman", "abusafia");
 		userAyman.addRole(roleAdmin);
 		
-		User savedUser=repo.save(userAyman);
+		User savedUser=userRepo.save(userAyman);
 		assertThat(savedUser.getId()).isGreaterThan(0);
 
 	}
@@ -45,49 +45,56 @@ public class UserRepositoryTests {
 		userAhmad.addRole(roleAssistant);
 	
 
-		User savedUser=repo.save(userAhmad);
+		User savedUser=userRepo.save(userAhmad);
 		assertThat(savedUser.getId()).isGreaterThan(0);
 	}
 	
 	@Test
 	public void testListAllUsers() {
-		Iterable<User>listUsers=repo.findAll();
+		Iterable<User>listUsers=userRepo.findAll();
 		listUsers.forEach(user -> System.out.println(user));
 	}
 	
 	@Test
 	public void testGetUserById() {
-		User userAyman=repo.findById(1).get();
+		User userAyman=userRepo.findById(1).get();
 		System.out.println(userAyman);
 		assertThat(userAyman).isNotNull();
 	}
 	
 	@Test
 	public void testUpdateUserDetails() {
-		User userAyman=repo.findById(1).get();
+		User userAyman=userRepo.findById(1).get();
 		userAyman.setEnabled(true);
 		userAyman.setEmail("aymanabusafia@gmail.com");
-		repo.save(userAyman);
+		userRepo.save(userAyman);
 	}
 	
 	@Test
 	public void testUpdateUserRoles() {
-		User userAhmad=repo.findById(8).get();
+		User userAhmad=userRepo.findById(8).get();
 		Role roleEditor=new Role(3);
 		Role roleSalesperson=new Role(2);
 		
 		userAhmad.getRoles().remove(roleEditor);
 		userAhmad.addRole(roleSalesperson);
 		
-		repo.save(userAhmad);
+		userRepo.save(userAhmad);
 	}
 	
 	@Test
 	public void testDeleteUser() {
 		Integer userId=8;
-		repo.deleteById(userId);
+		userRepo.deleteById(userId);
 		
 		
+	}
+	
+	@Test
+	public void testGetUserByEmail() {
+		String email="ahmad@gmail.com";
+		User user=userRepo.getUserByEmail(email);
+		assertThat(user).isNotNull();
 	}
 
 }
