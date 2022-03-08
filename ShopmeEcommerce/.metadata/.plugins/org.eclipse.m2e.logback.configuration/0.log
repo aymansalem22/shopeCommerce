@@ -5930,3 +5930,4 @@ java.net.URISyntaxException: Illegal character in path at index 16: file:/C:/Pro
 2022-03-08 18:04:32,159 [Worker-484: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
 2022-03-08 18:04:32,162 [Worker-484: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2022-03-08 18:04:32,162 [Worker-484: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-03-08 18:04:32,163 [Worker-484: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\ShopmeEcommerce\ShopmeProject\ShopmeWebParent\ShopmeBackEnd\src\test\resources
