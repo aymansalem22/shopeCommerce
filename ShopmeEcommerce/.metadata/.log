@@ -9813,3 +9813,99 @@ java.util.concurrent.TimeoutException
 	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
 	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
 	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-11 09:57:24.195
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.CyyrJCLG
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-11 09:57:25.399
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.CyyrJCLG
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-11 09:57:25.400
+!MESSAGE subsribers = {}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-11 09:57:25.400
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.CyyrJCLG => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-11 09:57:25.877
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-11 09:57:25.877
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@2e3fe830[org.springframework.tooling.boot.ls:1.30.0.202201310805(id=564)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-11 09:57:25.878
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-11 09:57:28.423
+!MESSAGE Boot LS startup time from start to initialized: 2544ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-11 09:57:28.535
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.YZrxQtBXisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-11 09:57:28.536
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-11 09:57:28.536
+!MESSAGE Scheduling initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-11 09:57:28.537
+!MESSAGE Scheduling initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-11 09:57:28.537
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-11 09:57:28.537
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.YZrxQtBX => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-11 09:57:28.557
+!MESSAGE classpath=112 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-11 09:57:28.559
+!MESSAGE buffering callback sts4.classpath.YZrxQtBX ShopmeBackEnd false 112
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-11 09:57:28.560
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-11 09:57:28.561
+!MESSAGE classpath=49 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-11 09:57:28.563
+!MESSAGE buffering callback sts4.classpath.YZrxQtBX ShopmeCommon false 49
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-11 09:57:28.563
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-11 09:57:28.566
+!MESSAGE classpath=111 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-11 09:57:28.569
+!MESSAGE buffering callback sts4.classpath.YZrxQtBX ShopmeFrontEnd false 111
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-11 09:57:28.569
+!MESSAGE executing callback sts4.classpath.YZrxQtBX 3 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-11 09:57:29.025
+!MESSAGE executing callback sts4.classpath.YZrxQtBX SUCCESS [done]
+
+!ENTRY org.eclipse.lsp4e 2 0 2022-03-11 11:18:47.258
+!MESSAGE Timeout waiting for data to generate LS hover
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1960)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2095)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:70)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.eclipse.lsp4e 2 0 2022-03-11 11:32:26.103
+!MESSAGE Timeout waiting for data to generate LS hover
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1960)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2095)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:70)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)

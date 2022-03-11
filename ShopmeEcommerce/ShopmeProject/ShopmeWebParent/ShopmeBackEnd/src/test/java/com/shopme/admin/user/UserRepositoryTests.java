@@ -104,5 +104,18 @@ public class UserRepositoryTests {
 	    
 	    assertThat(countById).isNotNull().isGreaterThan(0);
 	}
+	
+	@Test
+	public void testDisableUser() {
+		Integer id=4;
+		userRepo.updateEnabledStatus(id, false);
+		
+	}
+	
+	@Test
+	public void testEnabledUser() {
+		Integer id=9;
+		userRepo.updateEnabledStatus(id, true);
+	}
 
 }
