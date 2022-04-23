@@ -57,7 +57,7 @@ public class UserController {
 		FileUploadUtil.saveFile(uploadDir, fileName, multiPartFile);
 		}
 	
-		//userService.save(user);
+		userService.save(user);
 		
 		redirectAttributes.addFlashAttribute("message","the user has been saved successfully.");
 		return "redirect:/users";
