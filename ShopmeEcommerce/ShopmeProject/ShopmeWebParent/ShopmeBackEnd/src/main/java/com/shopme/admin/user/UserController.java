@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -23,100 +24,110 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
-	
+
 	@GetMapping("/users")
-	public String listAll(Model model) {
-		List<User> listUsers=userService.listAll();
-		model.addAttribute("listUsers",listUsers);
-		
-		return "users";
+	public String listFirstPage(Model model) {
+		return listByPage(1, model);
 	}
-	
-	
+
+	@GetMapping("/users/page/{pageNum}")
+	public String listByPage(@PathVariable(name = "pageNum") int pageNum, Model model) {
+		Page<User> page = userService.listByPage(pageNum);
+		List<User> listUsers = page.getContent();
+
+		long startCount = (pageNum - 1) * UserService.USERS_PER_PAGE + 1;
+		long endCount = startCount + UserService.USERS_PER_PAGE - 1;
+		if (endCount > page.getTotalElements()) {
+			endCount = page.getTotalElements();
+		}
+
+		model.addAttribute("currentPage", pageNum);
+		model.addAttribute("totalPages", page.getTotalPages());
+		model.addAttribute("startCount", startCount);
+		model.addAttribute("endCount", endCount);
+
+		model.addAttribute("totalItems", page.getTotalElements());
+		model.addAttribute("listUsers", listUsers);
+
+		return "users";
+
+	}
+
 	@GetMapping("/users/new")
 	public String newUser(Model model) {
-		List<Role> listRoles=userService.listRoles();
-		User user=new User();
+		List<Role> listRoles = userService.listRoles();
+		User user = new User();
 		user.setEnabled(true);
-		model.addAttribute("user",user);
-		model.addAttribute("listRoles",listRoles);
-		model.addAttribute("pageTitle","Create New User");
+		model.addAttribute("user", user);
+		model.addAttribute("listRoles", listRoles);
+		model.addAttribute("pageTitle", "Create New User");
 		return "user_form";
 	}
-	
+
 	@PostMapping("/users/save")
 	public String saveUser(User user, RedirectAttributes redirectAttributes,
-			@RequestParam("image")MultipartFile multiPartFile) throws IOException {
-		//add !
-		if(!multiPartFile.isEmpty()) {
-		String fileName=StringUtils.cleanPath(multiPartFile.getOriginalFilename());
-		user.setPhotos(fileName);
-		//persist the user
-		User savedUser=userService.save(user);
-		
-		String uploadDir="user-photos/"+savedUser.getId();
-		FileUploadUtil.cleanDir(uploadDir);
-		FileUploadUtil.saveFile(uploadDir, fileName, multiPartFile);
+			@RequestParam("image") MultipartFile multiPartFile) throws IOException {
+		// add !
+		if (!multiPartFile.isEmpty()) {
+			String fileName = StringUtils.cleanPath(multiPartFile.getOriginalFilename());
+			user.setPhotos(fileName);
+			// persist the user
+			User savedUser = userService.save(user);
+
+			String uploadDir = "user-photos/" + savedUser.getId();
+			FileUploadUtil.cleanDir(uploadDir);
+			FileUploadUtil.saveFile(uploadDir, fileName, multiPartFile);
 		} else {
-			if (user.getPhotos().isEmpty()) user.setPhotos(null);
+			if (user.getPhotos().isEmpty())
+				user.setPhotos(null);
 			userService.save(user);
 		}
-	
-		
-		
-		redirectAttributes.addFlashAttribute("message","the user has been saved successfully.");
+
+		redirectAttributes.addFlashAttribute("message", "the user has been saved successfully.");
 		return "redirect:/users";
-		
+
 	}
-	
+
 	@GetMapping("/users/edit/{id}")
-	public String editUser(@PathVariable(name= "id") Integer id,
-			Model model,
-			RedirectAttributes redirectAttribute) {
+	public String editUser(@PathVariable(name = "id") Integer id, Model model, RedirectAttributes redirectAttribute) {
 		try {
-			User user=userService.get(id);
-			List<Role> listRoles=userService.listRoles();
-			
-			model.addAttribute("user",user);
-			model.addAttribute("pageTitle","Edit User (ID: " +id +")");
-			model.addAttribute("listRoles",listRoles);
+			User user = userService.get(id);
+			List<Role> listRoles = userService.listRoles();
+
+			model.addAttribute("user", user);
+			model.addAttribute("pageTitle", "Edit User (ID: " + id + ")");
+			model.addAttribute("listRoles", listRoles);
 			return "user_form";
 		} catch (UserNotFoundException ex) {
-		redirectAttribute.addFlashAttribute("message",ex.getMessage());
-		return "redirect:/users";
+			redirectAttribute.addFlashAttribute("message", ex.getMessage());
+			return "redirect:/users";
 		}
-		
-		
+
 	}
-	
+
 	@GetMapping("/users/delete/{id}")
-	public String deleteUser(@PathVariable(name="id")Integer id,Model model,
-			RedirectAttributes redirectAttribute) {
+	public String deleteUser(@PathVariable(name = "id") Integer id, Model model, RedirectAttributes redirectAttribute) {
 		try {
 			userService.delete(id);
-			redirectAttribute.addFlashAttribute("message",
-					"the user Id "+id+" has been deleted successfully");
-			
-		}
-		 catch (UserNotFoundException ex) {
-			redirectAttribute.addFlashAttribute("message",ex.getMessage());
-			
+			redirectAttribute.addFlashAttribute("message", "the user Id " + id + " has been deleted successfully");
+
+		} catch (UserNotFoundException ex) {
+			redirectAttribute.addFlashAttribute("message", ex.getMessage());
+
 		}
 		return "redirect:/users";
 	}
-	
+
 	@GetMapping("/users/{id}/enabled/{status}")
-	public String updateUserEnabledStatus(@PathVariable("id") Integer id 
-			,@PathVariable("status")boolean enabled,RedirectAttributes redirectAttribute) {
+	public String updateUserEnabledStatus(@PathVariable("id") Integer id, @PathVariable("status") boolean enabled,
+			RedirectAttributes redirectAttribute) {
 		userService.updateUserEnabledStatus(id, enabled);
-		String status=enabled?"enabled" : "disabled";
-		String message="The user ID "+id+" has been "+status;
-		redirectAttribute.addFlashAttribute("message",message);
-		
+		String status = enabled ? "enabled" : "disabled";
+		String message = "The user ID " + id + " has been " + status;
+		redirectAttribute.addFlashAttribute("message", message);
+
 		return "redirect:/users";
-		
+
 	}
-	
-	
-	
+
 }
