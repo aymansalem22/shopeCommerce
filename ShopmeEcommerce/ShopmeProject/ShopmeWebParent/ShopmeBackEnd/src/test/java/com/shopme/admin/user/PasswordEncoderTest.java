@@ -10,7 +10,7 @@ public class PasswordEncoderTest {
 	@Test
 	public void testEncodePassword() {
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-		String rawPassword = "ayman1987";
+		String rawPassword = "100200300";
 		String encodedPassword = passwordEncoder.encode(rawPassword);
 
 		System.out.println(encodedPassword);
